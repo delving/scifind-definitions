@@ -1,0 +1,124 @@
+syntax = "proto3";
+package scifind.v1;
+
+option go_package = "scifind";
+option php_namespace = "scifind.Something";
+
+message Collection {
+  // TODO: finish
+}
+
+//
+// Static Content pages from the website
+message ContentPage {
+  string staticcontent = 1;
+}
+
+message DownloadLink {
+  string uri = 1;
+  string rights = 2;
+  string caption = 3;
+}
+
+message Event {
+  // TODO: finish
+}
+
+message Header {
+  string title = 1;
+  string description = 2;
+  string summary = 3;
+  repeated Image images = 4;
+}
+
+message Image {
+  string uri = 1;
+  string rights = 2;
+  string caption = 3;
+}
+
+message LongRead {
+  WebsiteContent content = 1;
+  Header header = 2;
+}
+
+message Measurement {
+  int64 height = 1;
+  int64 width = 2;
+  string unit = 3;
+  string dimension_type = 4;
+}
+
+message Metadata {
+  string object_number = 1;
+  string object_date = 2;
+  repeated Measurement measurements = 3;
+  string documentation = 4;
+  string association = 5;
+  string object_type = 6;
+  string rights = 7;
+  Theme theme = 8;
+  repeated Person creators = 9;
+}
+
+message Museum {
+  // TODO: finish
+}
+
+message Object {
+  Header header = 1;
+  Metadata metadata = 2;
+  Relations relations = 3;
+  DownloadLink download = 4;
+}
+
+message Partner {
+  // TODO: finish
+}
+
+message Person {
+  // TODO: finish
+}
+
+message Relations {
+  repeated Collection collections = 2;
+  repeated SubCollection sub_collections = 3;
+  repeated Theme themes = 4;
+  repeated Event events = 5;
+  repeated Museum museums = 6;
+  /* repeated Object objects = 7; */
+  repeated Person persons = 8;
+  repeated StoryCard story_cards = 9;
+  repeated LongRead long_reads = 10;
+}
+
+message StoryCard {
+  WebsiteContent content = 1;
+  Header header = 2;
+}
+
+message StoryCardCollection {
+  Header header = 1;
+  repeated StoryCard story_card = 2;
+}
+
+message SubCollection {
+  // TODO: finish
+}
+
+message Theme {
+  // TODO: finish
+}
+
+message Timeline {
+  Header header = 1;
+  repeated Theme themes = 2;
+  repeated Person persons = 3;
+  repeated Event events = 4;
+}
+
+message WebsiteContent {
+  string staticcontent = 1;
+  /* repeated Relations relations = 2; */
+  string publish_date = 3;
+}

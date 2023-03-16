@@ -2,7 +2,7 @@ syntax = "proto3";
 package scifind.v1;
 
 option go_package = "scifind";
-option php_namespace = "scifind.Something";
+option php_namespace = "\\App\\Services\\Scifind\\V1";
 
 message Collection {
   // TODO: finish

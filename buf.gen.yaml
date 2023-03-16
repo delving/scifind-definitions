@@ -12,8 +12,6 @@ plugins:
     opt: paths=source_relative
   - plugin: buf.build/grpc/php
     out: gen
-    opt: paths=source_relative
   # dependencies
   - plugin: buf.build/protocolbuffers/php
     out: gen
-    opt: paths=source_relative

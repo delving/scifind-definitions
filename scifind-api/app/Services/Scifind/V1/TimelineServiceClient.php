@@ -1,7 +1,7 @@
 <?php
 // GENERATED CODE -- DO NOT EDIT!
 
-namespace App\Services\Scifind\V1;
+namespace Scifind\V1;
 
 /**
  */

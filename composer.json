@@ -1,5 +1,0 @@
-{
-    "require": {
-        "protobuf-php/protobuf-plugin": "^0.1.3"
-    }
-}

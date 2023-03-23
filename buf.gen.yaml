@@ -1,8 +1,8 @@
 version: v1
 managed:
-  enabled: true
+  enabled: false 
   go_package_prefix:
-    default: github.com/delving/scifind/gen
+    default: github.com/delving/vhu
 plugins:
   - plugin: buf.build/protocolbuffers/go
     out: gen

@@ -1,0 +1,45 @@
+syntax = "proto3";
+package vhu.v1;
+
+import "vhu/v1/definitions.proto";
+
+option go_package = "delving.vhu";
+option php_namespace = "App\\Services\\VHU";
+
+// [start] object service
+message GetObjectRequest {
+  string id = 1;
+}
+
+message GetObjectResponse {
+  ObjectRecord object = 1;
+}
+
+message ListObjectsRequest {
+  string query = 1;
+  int32 page = 2;
+}
+
+message ListObjectsResponse {
+  repeated ObjectRecord objects = 1;
+}
+
+service ObjectRecordService {
+  rpc GetObject(GetObjectRequest) returns (GetObjectResponse);
+  rpc ListObjects(ListObjectsRequest) returns (ListObjectsResponse);
+}
+// [end] object service
+
+// [start] timeline service
+message GetTimelineRequest {
+  string id = 1;
+}
+
+message GetTimelineResponse {
+  Timeline object = 1;
+}
+
+service TimelineService {
+  rpc GetTimeline(GetTimelineRequest) returns (GetTimelineResponse);
+}
+// [end] timeline service

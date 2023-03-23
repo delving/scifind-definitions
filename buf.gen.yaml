@@ -11,7 +11,7 @@ plugins:
     out: gen
     opt: paths=source_relative
   - plugin: buf.build/grpc/php
-    out: scifind-api/app/Services
+    out: scifind-api
   # dependencies
   - plugin: buf.build/protocolbuffers/php
-    out: scifind-api/app/Services
+    out: scifind-api

@@ -1,7 +1,7 @@
 syntax = "proto3";
 package vhu.v1;
 
-option go_package = "delving.vhu";
+option go_package = "poc/vhu";
 option php_namespace = "App\\Services\\VHU";
 
 message Collection {
@@ -70,6 +70,7 @@ message ObjectRecord {
   Metadata metadata = 2;
   Relations relations = 3;
   DownloadLink download = 4;
+  string id = 5;
 }
 
 message Partner {

@@ -3,7 +3,7 @@ package vhu.v1;
 
 import "vhu/v1/definitions.proto";
 
-option go_package = "delving.vhu";
+option go_package = "poc/vhu";
 option php_namespace = "App\\Services\\VHU";
 
 // [start] object service

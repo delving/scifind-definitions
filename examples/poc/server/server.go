@@ -37,6 +37,7 @@ import (
 	"google.golang.org/grpc/codes"
 	"google.golang.org/grpc/credentials"
 	"google.golang.org/grpc/examples/data"
+	"google.golang.org/grpc/reflection"
 	"google.golang.org/grpc/status"
 
 	pb "github.com/delving/vhu-definition/examples/poc/vhu/v1"
@@ -119,6 +120,8 @@ func main() {
 		opts = []grpc.ServerOption{grpc.Creds(creds)}
 	}
 	grpcServer := grpc.NewServer(opts...)
+	// Register reflection service on gRPC server.
+	reflection.Register(grpcServer)
 	objectServer := newServer()
 	pb.RegisterObjectRecordServiceServer(grpcServer, objectServer)
 	log.Printf("started grpc server with %d records on %s", len(objectServer.objects), serverDSN)

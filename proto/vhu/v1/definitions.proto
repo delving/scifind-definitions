@@ -4,24 +4,26 @@ package vhu.v1;
 option go_package = "poc/vhu";
 option php_namespace = "App\\Services\\VHU";
 
-message Collection {
-  // TODO: finish
+enum EntityType {
+  ENTITY_TYPE_UNSPECIFIED = 0;
+  ENTITY_TYPE_EVENT = 1;
+  ENTITY_TYPE_CONCEPTUAL_OBJECT = 2;
+  ENTITY_TYPE_MUSEUM_OBJECT = 3;
+  ENTITY_TYPE_PARTNER = 4;
+  ENTITY_TYPE_CONCEPT = 5;
 }
 
+// Core
 //
-// Static Content pages from the website
-message ContentPage {
-  string staticcontent = 1;
+message Literal {
+  string value = 1; //  [ (json_name) = "@value", (json_ignore) = false ];
+  string language = 2; // [ (json_name) = "@language", (json_ignore) = false ];
 }
 
-message DownloadLink {
-  string uri = 1;
-  string rights = 2;
-  string caption = 3;
-}
-
-message Event {
-  // TODO: finish
+message LinkedEntity {
+  string id = 1; // [ (json_name) = "@id", (json_ignore) = false ]; // RDF URI
+  string pref_label = 2;
+  EntityType type = 3;
 }
 
 message Header {
@@ -29,17 +31,59 @@ message Header {
   string description = 2;
   string summary = 3;
   repeated Image images = 4;
+  string id = 5; // RDF URI
 }
 
-message Image {
-  string uri = 1;
-  string rights = 2;
-  string caption = 3;
+message Event {
+  Header header = 1;
+  string start_date = 2;
+  string end_date = 3;
+  string period = 4;
+  repeated LinkedEntity objects = 5;
+  bool is_group = 6;
+  string year = 7;
+  repeated LinkedEntity parents = 8;
+  repeated LinkedEntity children = 10;
+  string is_shown_at = 9;
 }
 
-message LongRead {
-  WebsiteContent content = 1;
-  Header header = 2;
+message Timeline {
+  Header header = 1;
+  repeated Event events = 4;
+  // repeated Theme themes = 2;
+  // repeated Collection collections = 5;
+  // repeated Person persons = 3;
+}
+
+message ConceptualObject {
+  Header header = 1;
+  Metadata metadata = 2;
+  Relations relations = 3;
+  DownloadLink download = 4;
+  repeated LinkedEntity organizations = 5;
+  repeated LinkedEntity objects = 6;
+  repeated LinkedEntity events = 7;
+  repeated LinkedEntity parents = 8;
+  string is_shown_at = 9;
+  repeated LinkedEntity museum_objects = 10;
+}
+
+message Concept {
+  Header header = 1;
+  Metadata metadata = 2;
+  repeated LinkedEntity organizations = 5;
+  repeated LinkedEntity objects = 6;
+  repeated LinkedEntity events = 7;
+  repeated LinkedEntity parents = 8;
+  repeated LinkedEntity museum_objects = 10;
+}
+
+message MuseumObject {
+  Header header = 1;
+  Metadata metadata = 2;
+  repeated LinkedEntity organizations = 5;
+  repeated LinkedEntity objects = 6;
+  repeated LinkedEntity events = 7;
 }
 
 message Measurement {
@@ -55,26 +99,65 @@ message Metadata {
   repeated Measurement measurements = 3;
   string documentation = 4;
   string association = 5;
-  string object_type = 6;
+  repeated string object_type = 6;
   string rights = 7;
   Theme theme = 8;
-  repeated Person creators = 9;
+  repeated string creators = 9;
+  repeated string subject = 10; // skos:relatedMatch via thesaurus link
+  string location = 11;
+  repeated string dimensions = 12;
+  repeated LinkedEntity objects = 13;
 }
 
-message Museum {
-  // TODO: finish
+message Link {
+  string uri = 1;
+  string label = 2;
 }
 
-message ObjectRecord {
+message Image {
+  string uri = 1;
+  string rights = 2;
+  string caption = 3;
+}
+
+message SubCollection {
   Header header = 1;
-  Metadata metadata = 2;
-  Relations relations = 3;
-  DownloadLink download = 4;
-  string id = 5;
+  Relations relations = 2;
+}
+
+message Collection {
+  Header header = 1;
+  Relations relations = 2;
 }
 
 message Partner {
-  // TODO: finish
+  Header header = 1;
+  Metadata metadata = 2;
+  repeated LinkedEntity linked_conceptual_objects = 3;
+}
+
+message Museum {
+  Header header = 1;
+  Metadata metadata = 2;
+}
+
+// Future
+
+//
+// Static Content pages from the website
+message ContentPage {
+  string staticcontent = 1;
+}
+
+message DownloadLink {
+  string uri = 1;
+  string rights = 2;
+  string caption = 3;
+}
+
+message LongRead {
+  WebsiteContent content = 1;
+  Header header = 2;
 }
 
 message Person {
@@ -87,7 +170,7 @@ message Relations {
   repeated Theme themes = 4;
   repeated Event events = 5;
   repeated Museum museums = 6;
-  repeated ObjectRecord objects = 7;
+  repeated ConceptualObject objects = 7;
   repeated Person persons = 8;
   repeated StoryCard story_cards = 9;
   repeated LongRead long_reads = 10;
@@ -103,19 +186,8 @@ message StoryCardCollection {
   repeated StoryCard story_card = 2;
 }
 
-message SubCollection {
-  // TODO: finish
-}
-
 message Theme {
   // TODO: finish
-}
-
-message Timeline {
-  Header header = 1;
-  repeated Theme themes = 2;
-  repeated Person persons = 3;
-  repeated Event events = 4;
 }
 
 message WebsiteContent {

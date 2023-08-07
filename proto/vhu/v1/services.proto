@@ -12,7 +12,7 @@ message GetObjectRequest {
 }
 
 message GetObjectResponse {
-  ObjectRecord object = 1;
+  ConceptualObject object = 1;
 }
 
 message ListObjectsRequest {
@@ -21,10 +21,10 @@ message ListObjectsRequest {
 }
 
 message ListObjectsResponse {
-  repeated ObjectRecord objects = 1;
+  repeated ConceptualObject objects = 1;
 }
 
-service ObjectRecordService {
+service ConceptualObjectService {
   rpc GetObject(GetObjectRequest) returns (GetObjectResponse);
   rpc ListObjects(ListObjectsRequest) returns (ListObjectsResponse);
 }

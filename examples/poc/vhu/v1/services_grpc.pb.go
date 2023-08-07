@@ -19,126 +19,127 @@ import (
 const _ = grpc.SupportPackageIsVersion7
 
 const (
-	ObjectRecordService_GetObject_FullMethodName   = "/vhu.v1.ObjectRecordService/GetObject"
-	ObjectRecordService_ListObjects_FullMethodName = "/vhu.v1.ObjectRecordService/ListObjects"
+	ConceptualObjectService_GetObject_FullMethodName   = "/vhu.v1.ConceptualObjectService/GetObject"
+	ConceptualObjectService_ListObjects_FullMethodName = "/vhu.v1.ConceptualObjectService/ListObjects"
 )
 
-// ObjectRecordServiceClient is the client API for ObjectRecordService service.
+// ConceptualObjectServiceClient is the client API for ConceptualObjectService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ObjectRecordServiceClient interface {
+type ConceptualObjectServiceClient interface {
 	GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error)
 	ListObjects(ctx context.Context, in *ListObjectsRequest, opts ...grpc.CallOption) (*ListObjectsResponse, error)
 }
 
-type objectRecordServiceClient struct {
+type conceptualObjectServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewObjectRecordServiceClient(cc grpc.ClientConnInterface) ObjectRecordServiceClient {
-	return &objectRecordServiceClient{cc}
+func NewConceptualObjectServiceClient(cc grpc.ClientConnInterface) ConceptualObjectServiceClient {
+	return &conceptualObjectServiceClient{cc}
 }
 
-func (c *objectRecordServiceClient) GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error) {
+func (c *conceptualObjectServiceClient) GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error) {
 	out := new(GetObjectResponse)
-	err := c.cc.Invoke(ctx, ObjectRecordService_GetObject_FullMethodName, in, out, opts...)
+	err := c.cc.Invoke(ctx, ConceptualObjectService_GetObject_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *objectRecordServiceClient) ListObjects(ctx context.Context, in *ListObjectsRequest, opts ...grpc.CallOption) (*ListObjectsResponse, error) {
+func (c *conceptualObjectServiceClient) ListObjects(ctx context.Context, in *ListObjectsRequest, opts ...grpc.CallOption) (*ListObjectsResponse, error) {
 	out := new(ListObjectsResponse)
-	err := c.cc.Invoke(ctx, ObjectRecordService_ListObjects_FullMethodName, in, out, opts...)
+	err := c.cc.Invoke(ctx, ConceptualObjectService_ListObjects_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ObjectRecordServiceServer is the server API for ObjectRecordService service.
-// All implementations must embed UnimplementedObjectRecordServiceServer
+// ConceptualObjectServiceServer is the server API for ConceptualObjectService service.
+// All implementations must embed UnimplementedConceptualObjectServiceServer
 // for forward compatibility
-type ObjectRecordServiceServer interface {
+type ConceptualObjectServiceServer interface {
 	GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error)
 	ListObjects(context.Context, *ListObjectsRequest) (*ListObjectsResponse, error)
-	mustEmbedUnimplementedObjectRecordServiceServer()
+	mustEmbedUnimplementedConceptualObjectServiceServer()
 }
 
-// UnimplementedObjectRecordServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedObjectRecordServiceServer struct {
+// UnimplementedConceptualObjectServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedConceptualObjectServiceServer struct {
 }
 
-func (UnimplementedObjectRecordServiceServer) GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error) {
+func (UnimplementedConceptualObjectServiceServer) GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method GetObject not implemented")
 }
-func (UnimplementedObjectRecordServiceServer) ListObjects(context.Context, *ListObjectsRequest) (*ListObjectsResponse, error) {
+func (UnimplementedConceptualObjectServiceServer) ListObjects(context.Context, *ListObjectsRequest) (*ListObjectsResponse, error) {
 	return nil, status.Errorf(codes.Unimplemented, "method ListObjects not implemented")
 }
-func (UnimplementedObjectRecordServiceServer) mustEmbedUnimplementedObjectRecordServiceServer() {}
+func (UnimplementedConceptualObjectServiceServer) mustEmbedUnimplementedConceptualObjectServiceServer() {
+}
 
-// UnsafeObjectRecordServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ObjectRecordServiceServer will
+// UnsafeConceptualObjectServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to ConceptualObjectServiceServer will
 // result in compilation errors.
-type UnsafeObjectRecordServiceServer interface {
-	mustEmbedUnimplementedObjectRecordServiceServer()
+type UnsafeConceptualObjectServiceServer interface {
+	mustEmbedUnimplementedConceptualObjectServiceServer()
 }
 
-func RegisterObjectRecordServiceServer(s grpc.ServiceRegistrar, srv ObjectRecordServiceServer) {
-	s.RegisterService(&ObjectRecordService_ServiceDesc, srv)
+func RegisterConceptualObjectServiceServer(s grpc.ServiceRegistrar, srv ConceptualObjectServiceServer) {
+	s.RegisterService(&ConceptualObjectService_ServiceDesc, srv)
 }
 
-func _ObjectRecordService_GetObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ConceptualObjectService_GetObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(GetObjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ObjectRecordServiceServer).GetObject(ctx, in)
+		return srv.(ConceptualObjectServiceServer).GetObject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ObjectRecordService_GetObject_FullMethodName,
+		FullMethod: ConceptualObjectService_GetObject_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ObjectRecordServiceServer).GetObject(ctx, req.(*GetObjectRequest))
+		return srv.(ConceptualObjectServiceServer).GetObject(ctx, req.(*GetObjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ObjectRecordService_ListObjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+func _ConceptualObjectService_ListObjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
 	in := new(ListObjectsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ObjectRecordServiceServer).ListObjects(ctx, in)
+		return srv.(ConceptualObjectServiceServer).ListObjects(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ObjectRecordService_ListObjects_FullMethodName,
+		FullMethod: ConceptualObjectService_ListObjects_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ObjectRecordServiceServer).ListObjects(ctx, req.(*ListObjectsRequest))
+		return srv.(ConceptualObjectServiceServer).ListObjects(ctx, req.(*ListObjectsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ObjectRecordService_ServiceDesc is the grpc.ServiceDesc for ObjectRecordService service.
+// ConceptualObjectService_ServiceDesc is the grpc.ServiceDesc for ConceptualObjectService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ObjectRecordService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vhu.v1.ObjectRecordService",
-	HandlerType: (*ObjectRecordServiceServer)(nil),
+var ConceptualObjectService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vhu.v1.ConceptualObjectService",
+	HandlerType: (*ConceptualObjectServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
 			MethodName: "GetObject",
-			Handler:    _ObjectRecordService_GetObject_Handler,
+			Handler:    _ConceptualObjectService_GetObject_Handler,
 		},
 		{
 			MethodName: "ListObjects",
-			Handler:    _ObjectRecordService_ListObjects_Handler,
+			Handler:    _ConceptualObjectService_ListObjects_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

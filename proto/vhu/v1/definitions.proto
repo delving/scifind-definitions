@@ -4,34 +4,24 @@ package vhu.v1;
 option go_package = "poc/vhu";
 option php_namespace = "App\\Services\\VHU";
 
-enum EntityType {
-  ENTITY_TYPE_UNSPECIFIED = 0;
-  ENTITY_TYPE_EVENT = 1;
-  ENTITY_TYPE_CONCEPTUAL_OBJECT = 2;
-  ENTITY_TYPE_MUSEUM_OBJECT = 3;
-  ENTITY_TYPE_PARTNER = 4;
-  ENTITY_TYPE_CONCEPT = 5;
-}
-
-// Core
-//
-message Literal {
-  string value = 1; //  [ (json_name) = "@value", (json_ignore) = false ];
-  string language = 2; // [ (json_name) = "@language", (json_ignore) = false ];
-}
-
-message LinkedEntity {
-  string id = 1; // [ (json_name) = "@id", (json_ignore) = false ]; // RDF URI
-  string pref_label = 2;
-  EntityType type = 3;
-}
-
 message Header {
   string title = 1;
   string description = 2;
   string summary = 3;
   repeated Image images = 4;
-  string id = 5; // RDF URI
+  string id = 5; // objectnumber
+  string uri = 6; // RDF URI
+}
+
+message Image {
+  string uri = 1;
+  string rights = 2;
+  string caption = 3;
+}
+
+message Timeline {
+  Header header = 1;
+  repeated Event events = 2;
 }
 
 message Event {
@@ -39,58 +29,32 @@ message Event {
   string start_date = 2;
   string end_date = 3;
   string period = 4;
-  repeated LinkedEntity objects = 5;
+  repeated MuseumObjectInfo objects = 5;
   bool is_group = 6;
   string year = 7;
-  repeated LinkedEntity parents = 8;
-  repeated LinkedEntity children = 10;
-  string is_shown_at = 9;
 }
 
-message Timeline {
-  Header header = 1;
-  repeated Event events = 4;
-  // repeated Theme themes = 2;
-  // repeated Collection collections = 5;
-  // repeated Person persons = 3;
-}
-
-message ConceptualObject {
-  Header header = 1;
-  Metadata metadata = 2;
-  Relations relations = 3;
-  DownloadLink download = 4;
-  repeated LinkedEntity organizations = 5;
-  repeated LinkedEntity objects = 6;
-  repeated LinkedEntity events = 7;
-  repeated LinkedEntity parents = 8;
-  string is_shown_at = 9;
-  repeated LinkedEntity museum_objects = 10;
-}
-
-message Concept {
-  Header header = 1;
-  Metadata metadata = 2;
-  repeated LinkedEntity organizations = 5;
-  repeated LinkedEntity objects = 6;
-  repeated LinkedEntity events = 7;
-  repeated LinkedEntity parents = 8;
-  repeated LinkedEntity museum_objects = 10;
+message MuseumObjectInfo {
+  string title = 1;
+  string image = 2;
+  string id = 3;
+  string uri = 4;
+  string object_number = 5;
 }
 
 message MuseumObject {
   Header header = 1;
   Metadata metadata = 2;
-  repeated LinkedEntity organizations = 5;
-  repeated LinkedEntity objects = 6;
-  repeated LinkedEntity events = 7;
+  repeated ThesaurusConcept concepts = 3; // skos:relatedMatch via thesaurus link
+  repeated MuseumObject related_objects = 4;
+  ObjLinkInfo link_info = 5;
 }
 
-message Measurement {
-  int64 height = 1;
-  int64 width = 2;
-  string unit = 3;
-  string dimension_type = 4;
+message ObjLinkInfo {
+  string museum_name = 1;
+  string object_number = 2;
+  string object_name = 3;
+  string dcn_uri = 4;
 }
 
 message Metadata {
@@ -101,97 +65,138 @@ message Metadata {
   string association = 5;
   repeated string object_type = 6;
   string rights = 7;
-  Theme theme = 8;
   repeated string creators = 9;
-  repeated string subject = 10; // skos:relatedMatch via thesaurus link
-  string location = 11;
+  repeated string subject = 10;
   repeated string dimensions = 12;
-  repeated LinkedEntity objects = 13;
+  repeated string material = 13;
 }
 
-message Link {
-  string uri = 1;
-  string label = 2;
+message Measurement {
+  int64 height = 1;
+  int64 width = 2;
+  string unit = 3;
+  string dimension_type = 4;
 }
 
-message Image {
-  string uri = 1;
-  string rights = 2;
-  string caption = 3;
+message ThesaurusConcept {
+  string id = 1; // STT URI
+  string pref_label = 2;
+  string scope_notes = 3;
 }
 
-message SubCollection {
-  Header header = 1;
-  Relations relations = 2;
-}
-
-message Collection {
-  Header header = 1;
-  Relations relations = 2;
-}
-
-message Partner {
-  Header header = 1;
-  Metadata metadata = 2;
-  repeated LinkedEntity linked_conceptual_objects = 3;
-}
-
-message Museum {
-  Header header = 1;
-  Metadata metadata = 2;
-}
-
-// Future
-
+// Core
 //
-// Static Content pages from the website
-message ContentPage {
-  string staticcontent = 1;
-}
-
-message DownloadLink {
-  string uri = 1;
-  string rights = 2;
-  string caption = 3;
-}
-
-message LongRead {
-  WebsiteContent content = 1;
-  Header header = 2;
-}
-
-message Person {
-  // TODO: finish
-}
-
-message Relations {
-  repeated Collection collections = 2;
-  repeated SubCollection sub_collections = 3;
-  repeated Theme themes = 4;
-  repeated Event events = 5;
-  repeated Museum museums = 6;
-  repeated ConceptualObject objects = 7;
-  repeated Person persons = 8;
-  repeated StoryCard story_cards = 9;
-  repeated LongRead long_reads = 10;
-}
-
-message StoryCard {
-  WebsiteContent content = 1;
-  Header header = 2;
-}
-
-message StoryCardCollection {
-  Header header = 1;
-  repeated StoryCard story_card = 2;
-}
-
-message Theme {
-  // TODO: finish
-}
-
-message WebsiteContent {
-  string staticcontent = 1;
-  /* repeated Relations relations = 2; */
-  string publish_date = 3;
-}
+// message Literal {
+//   string value = 1; //  [ (json_name) = "@value", (json_ignore) = false ];
+//   string language = 2; // [ (json_name) = "@language", (json_ignore) = false ];
+// }
+//
+// message LinkedEntity {
+//   string id = 1; // [ (json_name) = "@id", (json_ignore) = false ]; // RDF URI
+//   string pref_label = 2;
+//   EntityType type = 3;
+// }
+//
+// message ConceptualObject {
+//   Header header = 1;
+//   Metadata metadata = 2;
+//   Relations relations = 3;
+//   DownloadLink download = 4;
+//   repeated LinkedEntity organizations = 5;
+//   repeated LinkedEntity objects = 6;
+//   repeated LinkedEntity events = 7;
+//   repeated LinkedEntity parents = 8;
+//   string is_shown_at = 9;
+//   repeated LinkedEntity museum_objects = 10;
+// }
+//
+// message Concept {
+//   Header header = 1;
+//   Metadata metadata = 2;
+//   repeated LinkedEntity organizations = 5;
+//   repeated LinkedEntity objects = 6;
+//   repeated LinkedEntity events = 7;
+//   repeated LinkedEntity parents = 8;
+//   repeated LinkedEntity museum_objects = 10;
+// }
+//
+// message Link {
+//   string uri = 1;
+//   string label = 2;
+// }
+//
+// message SubCollection {
+//   Header header = 1;
+//   Relations relations = 2;
+// }
+//
+// message Collection {
+//   Header header = 1;
+//   Relations relations = 2;
+// }
+//
+// message Partner {
+//   Header header = 1;
+//   Metadata metadata = 2;
+//   repeated LinkedEntity linked_conceptual_objects = 3;
+// }
+//
+// message Museum {
+//   Header header = 1;
+//   Metadata metadata = 2;
+// }
+//
+// // Future
+//
+// //
+// // Static Content pages from the website
+// message ContentPage {
+//   string staticcontent = 1;
+// }
+//
+// message DownloadLink {
+//   string uri = 1;
+//   string rights = 2;
+//   string caption = 3;
+// }
+//
+// message LongRead {
+//   WebsiteContent content = 1;
+//   Header header = 2;
+// }
+//
+// message Person {
+//   // TODO: finish
+// }
+//
+// message Relations {
+//   repeated Collection collections = 2;
+//   repeated SubCollection sub_collections = 3;
+//   repeated Theme themes = 4;
+//   repeated Event events = 5;
+//   repeated Museum museums = 6;
+//   repeated ConceptualObject objects = 7;
+//   repeated Person persons = 8;
+//   repeated StoryCard story_cards = 9;
+//   repeated LongRead long_reads = 10;
+// }
+//
+// message StoryCard {
+//   WebsiteContent content = 1;
+//   Header header = 2;
+// }
+//
+// message StoryCardCollection {
+//   Header header = 1;
+//   repeated StoryCard story_card = 2;
+// }
+//
+// message Theme {
+//   // TODO: finish
+// }
+//
+// message WebsiteContent {
+//   string staticcontent = 1;
+//   /* repeated Relations relations = 2; */
+//   string publish_date = 3;
+// }

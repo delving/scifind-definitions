@@ -6,13 +6,39 @@ import "vhu/v1/definitions.proto";
 option go_package = "poc/vhu";
 option php_namespace = "App\\Services\\VHU";
 
+// [start] timeline service
+message GetTimelineRequest {
+  string id = 1;
+}
+
+message GetTimelineResponse {
+  Timeline timeline = 1;
+}
+
+message ListTimelineResponseEntry {
+  string id = 1;
+  string title = 2;
+}
+
+message ListTimelinesRequest {}
+
+message ListTimelinesResponse {
+  repeated ListTimelineResponseEntry timelines = 1;
+}
+
+service TimelineService {
+  rpc GetTimeline(GetTimelineRequest) returns (GetTimelineResponse);
+  rpc ListTimelines(ListTimelinesRequest) returns (ListTimelinesResponse);
+}
+// [end] timeline service
+
 // [start] object service
 message GetObjectRequest {
   string id = 1;
 }
 
 message GetObjectResponse {
-  ConceptualObject object = 1;
+  MuseumObject object = 1;
 }
 
 message ListObjectsRequest {
@@ -21,7 +47,7 @@ message ListObjectsRequest {
 }
 
 message ListObjectsResponse {
-  repeated ConceptualObject objects = 1;
+  repeated MuseumObject objects = 1;
 }
 
 service ConceptualObjectService {
@@ -29,17 +55,3 @@ service ConceptualObjectService {
   rpc ListObjects(ListObjectsRequest) returns (ListObjectsResponse);
 }
 // [end] object service
-
-// [start] timeline service
-message GetTimelineRequest {
-  string id = 1;
-}
-
-message GetTimelineResponse {
-  Timeline object = 1;
-}
-
-service TimelineService {
-  rpc GetTimeline(GetTimelineRequest) returns (GetTimelineResponse);
-}
-// [end] timeline service

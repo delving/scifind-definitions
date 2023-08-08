@@ -20,6 +20,241 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
+// [start] timeline service
+type GetTimelineRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+}
+
+func (x *GetTimelineRequest) Reset() {
+	*x = GetTimelineRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_vhu_v1_services_proto_msgTypes[0]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTimelineRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimelineRequest) ProtoMessage() {}
+
+func (x *GetTimelineRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_vhu_v1_services_proto_msgTypes[0]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimelineRequest.ProtoReflect.Descriptor instead.
+func (*GetTimelineRequest) Descriptor() ([]byte, []int) {
+	return file_vhu_v1_services_proto_rawDescGZIP(), []int{0}
+}
+
+func (x *GetTimelineRequest) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+type GetTimelineResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Timeline *Timeline `protobuf:"bytes,1,opt,name=timeline,proto3" json:"timeline,omitempty"`
+}
+
+func (x *GetTimelineResponse) Reset() {
+	*x = GetTimelineResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_vhu_v1_services_proto_msgTypes[1]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *GetTimelineResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*GetTimelineResponse) ProtoMessage() {}
+
+func (x *GetTimelineResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_vhu_v1_services_proto_msgTypes[1]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use GetTimelineResponse.ProtoReflect.Descriptor instead.
+func (*GetTimelineResponse) Descriptor() ([]byte, []int) {
+	return file_vhu_v1_services_proto_rawDescGZIP(), []int{1}
+}
+
+func (x *GetTimelineResponse) GetTimeline() *Timeline {
+	if x != nil {
+		return x.Timeline
+	}
+	return nil
+}
+
+type ListTimelineResponseEntry struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Id    string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
+	Title string `protobuf:"bytes,2,opt,name=title,proto3" json:"title,omitempty"`
+}
+
+func (x *ListTimelineResponseEntry) Reset() {
+	*x = ListTimelineResponseEntry{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_vhu_v1_services_proto_msgTypes[2]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ListTimelineResponseEntry) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListTimelineResponseEntry) ProtoMessage() {}
+
+func (x *ListTimelineResponseEntry) ProtoReflect() protoreflect.Message {
+	mi := &file_vhu_v1_services_proto_msgTypes[2]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListTimelineResponseEntry.ProtoReflect.Descriptor instead.
+func (*ListTimelineResponseEntry) Descriptor() ([]byte, []int) {
+	return file_vhu_v1_services_proto_rawDescGZIP(), []int{2}
+}
+
+func (x *ListTimelineResponseEntry) GetId() string {
+	if x != nil {
+		return x.Id
+	}
+	return ""
+}
+
+func (x *ListTimelineResponseEntry) GetTitle() string {
+	if x != nil {
+		return x.Title
+	}
+	return ""
+}
+
+type ListTimelinesRequest struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+}
+
+func (x *ListTimelinesRequest) Reset() {
+	*x = ListTimelinesRequest{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_vhu_v1_services_proto_msgTypes[3]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ListTimelinesRequest) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListTimelinesRequest) ProtoMessage() {}
+
+func (x *ListTimelinesRequest) ProtoReflect() protoreflect.Message {
+	mi := &file_vhu_v1_services_proto_msgTypes[3]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListTimelinesRequest.ProtoReflect.Descriptor instead.
+func (*ListTimelinesRequest) Descriptor() ([]byte, []int) {
+	return file_vhu_v1_services_proto_rawDescGZIP(), []int{3}
+}
+
+type ListTimelinesResponse struct {
+	state         protoimpl.MessageState
+	sizeCache     protoimpl.SizeCache
+	unknownFields protoimpl.UnknownFields
+
+	Timelines []*ListTimelineResponseEntry `protobuf:"bytes,1,rep,name=timelines,proto3" json:"timelines,omitempty"`
+}
+
+func (x *ListTimelinesResponse) Reset() {
+	*x = ListTimelinesResponse{}
+	if protoimpl.UnsafeEnabled {
+		mi := &file_vhu_v1_services_proto_msgTypes[4]
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		ms.StoreMessageInfo(mi)
+	}
+}
+
+func (x *ListTimelinesResponse) String() string {
+	return protoimpl.X.MessageStringOf(x)
+}
+
+func (*ListTimelinesResponse) ProtoMessage() {}
+
+func (x *ListTimelinesResponse) ProtoReflect() protoreflect.Message {
+	mi := &file_vhu_v1_services_proto_msgTypes[4]
+	if protoimpl.UnsafeEnabled && x != nil {
+		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
+		if ms.LoadMessageInfo() == nil {
+			ms.StoreMessageInfo(mi)
+		}
+		return ms
+	}
+	return mi.MessageOf(x)
+}
+
+// Deprecated: Use ListTimelinesResponse.ProtoReflect.Descriptor instead.
+func (*ListTimelinesResponse) Descriptor() ([]byte, []int) {
+	return file_vhu_v1_services_proto_rawDescGZIP(), []int{4}
+}
+
+func (x *ListTimelinesResponse) GetTimelines() []*ListTimelineResponseEntry {
+	if x != nil {
+		return x.Timelines
+	}
+	return nil
+}
+
 // [start] object service
 type GetObjectRequest struct {
 	state         protoimpl.MessageState
@@ -32,7 +267,7 @@ type GetObjectRequest struct {
 func (x *GetObjectRequest) Reset() {
 	*x = GetObjectRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_vhu_v1_services_proto_msgTypes[0]
+		mi := &file_vhu_v1_services_proto_msgTypes[5]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -45,7 +280,7 @@ func (x *GetObjectRequest) String() string {
 func (*GetObjectRequest) ProtoMessage() {}
 
 func (x *GetObjectRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_vhu_v1_services_proto_msgTypes[0]
+	mi := &file_vhu_v1_services_proto_msgTypes[5]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -58,7 +293,7 @@ func (x *GetObjectRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetObjectRequest.ProtoReflect.Descriptor instead.
 func (*GetObjectRequest) Descriptor() ([]byte, []int) {
-	return file_vhu_v1_services_proto_rawDescGZIP(), []int{0}
+	return file_vhu_v1_services_proto_rawDescGZIP(), []int{5}
 }
 
 func (x *GetObjectRequest) GetId() string {
@@ -73,13 +308,13 @@ type GetObjectResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Object *ConceptualObject `protobuf:"bytes,1,opt,name=object,proto3" json:"object,omitempty"`
+	Object *MuseumObject `protobuf:"bytes,1,opt,name=object,proto3" json:"object,omitempty"`
 }
 
 func (x *GetObjectResponse) Reset() {
 	*x = GetObjectResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_vhu_v1_services_proto_msgTypes[1]
+		mi := &file_vhu_v1_services_proto_msgTypes[6]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -92,7 +327,7 @@ func (x *GetObjectResponse) String() string {
 func (*GetObjectResponse) ProtoMessage() {}
 
 func (x *GetObjectResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_vhu_v1_services_proto_msgTypes[1]
+	mi := &file_vhu_v1_services_proto_msgTypes[6]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -105,10 +340,10 @@ func (x *GetObjectResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use GetObjectResponse.ProtoReflect.Descriptor instead.
 func (*GetObjectResponse) Descriptor() ([]byte, []int) {
-	return file_vhu_v1_services_proto_rawDescGZIP(), []int{1}
+	return file_vhu_v1_services_proto_rawDescGZIP(), []int{6}
 }
 
-func (x *GetObjectResponse) GetObject() *ConceptualObject {
+func (x *GetObjectResponse) GetObject() *MuseumObject {
 	if x != nil {
 		return x.Object
 	}
@@ -127,7 +362,7 @@ type ListObjectsRequest struct {
 func (x *ListObjectsRequest) Reset() {
 	*x = ListObjectsRequest{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_vhu_v1_services_proto_msgTypes[2]
+		mi := &file_vhu_v1_services_proto_msgTypes[7]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -140,7 +375,7 @@ func (x *ListObjectsRequest) String() string {
 func (*ListObjectsRequest) ProtoMessage() {}
 
 func (x *ListObjectsRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_vhu_v1_services_proto_msgTypes[2]
+	mi := &file_vhu_v1_services_proto_msgTypes[7]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -153,7 +388,7 @@ func (x *ListObjectsRequest) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListObjectsRequest.ProtoReflect.Descriptor instead.
 func (*ListObjectsRequest) Descriptor() ([]byte, []int) {
-	return file_vhu_v1_services_proto_rawDescGZIP(), []int{2}
+	return file_vhu_v1_services_proto_rawDescGZIP(), []int{7}
 }
 
 func (x *ListObjectsRequest) GetQuery() string {
@@ -175,13 +410,13 @@ type ListObjectsResponse struct {
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
 
-	Objects []*ConceptualObject `protobuf:"bytes,1,rep,name=objects,proto3" json:"objects,omitempty"`
+	Objects []*MuseumObject `protobuf:"bytes,1,rep,name=objects,proto3" json:"objects,omitempty"`
 }
 
 func (x *ListObjectsResponse) Reset() {
 	*x = ListObjectsResponse{}
 	if protoimpl.UnsafeEnabled {
-		mi := &file_vhu_v1_services_proto_msgTypes[3]
+		mi := &file_vhu_v1_services_proto_msgTypes[8]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		ms.StoreMessageInfo(mi)
 	}
@@ -194,7 +429,7 @@ func (x *ListObjectsResponse) String() string {
 func (*ListObjectsResponse) ProtoMessage() {}
 
 func (x *ListObjectsResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_vhu_v1_services_proto_msgTypes[3]
+	mi := &file_vhu_v1_services_proto_msgTypes[8]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
 		if ms.LoadMessageInfo() == nil {
@@ -207,107 +442,12 @@ func (x *ListObjectsResponse) ProtoReflect() protoreflect.Message {
 
 // Deprecated: Use ListObjectsResponse.ProtoReflect.Descriptor instead.
 func (*ListObjectsResponse) Descriptor() ([]byte, []int) {
-	return file_vhu_v1_services_proto_rawDescGZIP(), []int{3}
+	return file_vhu_v1_services_proto_rawDescGZIP(), []int{8}
 }
 
-func (x *ListObjectsResponse) GetObjects() []*ConceptualObject {
+func (x *ListObjectsResponse) GetObjects() []*MuseumObject {
 	if x != nil {
 		return x.Objects
-	}
-	return nil
-}
-
-// [start] timeline service
-type GetTimelineRequest struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Id string `protobuf:"bytes,1,opt,name=id,proto3" json:"id,omitempty"`
-}
-
-func (x *GetTimelineRequest) Reset() {
-	*x = GetTimelineRequest{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_vhu_v1_services_proto_msgTypes[4]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetTimelineRequest) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimelineRequest) ProtoMessage() {}
-
-func (x *GetTimelineRequest) ProtoReflect() protoreflect.Message {
-	mi := &file_vhu_v1_services_proto_msgTypes[4]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimelineRequest.ProtoReflect.Descriptor instead.
-func (*GetTimelineRequest) Descriptor() ([]byte, []int) {
-	return file_vhu_v1_services_proto_rawDescGZIP(), []int{4}
-}
-
-func (x *GetTimelineRequest) GetId() string {
-	if x != nil {
-		return x.Id
-	}
-	return ""
-}
-
-type GetTimelineResponse struct {
-	state         protoimpl.MessageState
-	sizeCache     protoimpl.SizeCache
-	unknownFields protoimpl.UnknownFields
-
-	Object *Timeline `protobuf:"bytes,1,opt,name=object,proto3" json:"object,omitempty"`
-}
-
-func (x *GetTimelineResponse) Reset() {
-	*x = GetTimelineResponse{}
-	if protoimpl.UnsafeEnabled {
-		mi := &file_vhu_v1_services_proto_msgTypes[5]
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		ms.StoreMessageInfo(mi)
-	}
-}
-
-func (x *GetTimelineResponse) String() string {
-	return protoimpl.X.MessageStringOf(x)
-}
-
-func (*GetTimelineResponse) ProtoMessage() {}
-
-func (x *GetTimelineResponse) ProtoReflect() protoreflect.Message {
-	mi := &file_vhu_v1_services_proto_msgTypes[5]
-	if protoimpl.UnsafeEnabled && x != nil {
-		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
-		if ms.LoadMessageInfo() == nil {
-			ms.StoreMessageInfo(mi)
-		}
-		return ms
-	}
-	return mi.MessageOf(x)
-}
-
-// Deprecated: Use GetTimelineResponse.ProtoReflect.Descriptor instead.
-func (*GetTimelineResponse) Descriptor() ([]byte, []int) {
-	return file_vhu_v1_services_proto_rawDescGZIP(), []int{5}
-}
-
-func (x *GetTimelineResponse) GetObject() *Timeline {
-	if x != nil {
-		return x.Object
 	}
 	return nil
 }
@@ -318,44 +458,60 @@ var file_vhu_v1_services_proto_rawDesc = []byte{
 	0x0a, 0x15, 0x76, 0x68, 0x75, 0x2f, 0x76, 0x31, 0x2f, 0x73, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
 	0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x12, 0x06, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x1a,
 	0x18, 0x76, 0x68, 0x75, 0x2f, 0x76, 0x31, 0x2f, 0x64, 0x65, 0x66, 0x69, 0x6e, 0x69, 0x74, 0x69,
-	0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x22, 0x0a, 0x10, 0x47, 0x65, 0x74,
+	0x6f, 0x6e, 0x73, 0x2e, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x22, 0x24, 0x0a, 0x12, 0x47, 0x65, 0x74,
+	0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12,
+	0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22,
+	0x43, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65,
+	0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2c, 0x0a, 0x08, 0x74, 0x69, 0x6d, 0x65, 0x6c, 0x69,
+	0x6e, 0x65, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x10, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76,
+	0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x08, 0x74, 0x69, 0x6d, 0x65,
+	0x6c, 0x69, 0x6e, 0x65, 0x22, 0x41, 0x0a, 0x19, 0x4c, 0x69, 0x73, 0x74, 0x54, 0x69, 0x6d, 0x65,
+	0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x45, 0x6e, 0x74, 0x72,
+	0x79, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69,
+	0x64, 0x12, 0x14, 0x0a, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x09,
+	0x52, 0x05, 0x74, 0x69, 0x74, 0x6c, 0x65, 0x22, 0x16, 0x0a, 0x14, 0x4c, 0x69, 0x73, 0x74, 0x54,
+	0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x22,
+	0x58, 0x0a, 0x15, 0x4c, 0x69, 0x73, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x73,
+	0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x3f, 0x0a, 0x09, 0x74, 0x69, 0x6d, 0x65,
+	0x6c, 0x69, 0x6e, 0x65, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x21, 0x2e, 0x76, 0x68,
+	0x75, 0x2e, 0x76, 0x31, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e,
+	0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x45, 0x6e, 0x74, 0x72, 0x79, 0x52, 0x09,
+	0x74, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x73, 0x22, 0x22, 0x0a, 0x10, 0x47, 0x65, 0x74,
 	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a,
-	0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x45, 0x0a,
+	0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x41, 0x0a,
 	0x11, 0x47, 0x65, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e,
-	0x73, 0x65, 0x12, 0x30, 0x0a, 0x06, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x18, 0x01, 0x20, 0x01,
-	0x28, 0x0b, 0x32, 0x18, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f, 0x6e, 0x63,
-	0x65, 0x70, 0x74, 0x75, 0x61, 0x6c, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x06, 0x6f, 0x62,
-	0x6a, 0x65, 0x63, 0x74, 0x22, 0x3e, 0x0a, 0x12, 0x4c, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a, 0x65,
-	0x63, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x71, 0x75,
-	0x65, 0x72, 0x79, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79,
-	0x12, 0x12, 0x0a, 0x04, 0x70, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x04,
-	0x70, 0x61, 0x67, 0x65, 0x22, 0x49, 0x0a, 0x13, 0x4c, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a, 0x65,
-	0x63, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x32, 0x0a, 0x07, 0x6f,
-	0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x18, 0x2e, 0x76,
-	0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x43, 0x6f, 0x6e, 0x63, 0x65, 0x70, 0x74, 0x75, 0x61, 0x6c,
-	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x07, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x22,
-	0x24, 0x0a, 0x12, 0x47, 0x65, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65,
-	0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28,
-	0x09, 0x52, 0x02, 0x69, 0x64, 0x22, 0x3f, 0x0a, 0x13, 0x47, 0x65, 0x74, 0x54, 0x69, 0x6d, 0x65,
-	0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x28, 0x0a, 0x06,
-	0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x18, 0x01, 0x20, 0x01, 0x28, 0x0b, 0x32, 0x10, 0x2e, 0x76,
-	0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x06,
-	0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x32, 0xa3, 0x01, 0x0a, 0x17, 0x43, 0x6f, 0x6e, 0x63, 0x65,
-	0x70, 0x74, 0x75, 0x61, 0x6c, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x53, 0x65, 0x72, 0x76, 0x69,
-	0x63, 0x65, 0x12, 0x40, 0x0a, 0x09, 0x47, 0x65, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12,
-	0x18, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x47, 0x65, 0x74, 0x4f, 0x62, 0x6a, 0x65,
-	0x63, 0x74, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x76, 0x68, 0x75, 0x2e,
-	0x76, 0x31, 0x2e, 0x47, 0x65, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70,
-	0x6f, 0x6e, 0x73, 0x65, 0x12, 0x46, 0x0a, 0x0b, 0x4c, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a, 0x65,
-	0x63, 0x74, 0x73, 0x12, 0x1a, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x4c, 0x69, 0x73,
-	0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a,
-	0x1b, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a,
-	0x65, 0x63, 0x74, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x32, 0x59, 0x0a, 0x0f,
-	0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12,
-	0x46, 0x0a, 0x0b, 0x47, 0x65, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x12, 0x1a,
-	0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x47, 0x65, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c,
-	0x69, 0x6e, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x76, 0x68, 0x75,
+	0x73, 0x65, 0x12, 0x2c, 0x0a, 0x06, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x18, 0x01, 0x20, 0x01,
+	0x28, 0x0b, 0x32, 0x14, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x4d, 0x75, 0x73, 0x65,
+	0x75, 0x6d, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x06, 0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74,
+	0x22, 0x3e, 0x0a, 0x12, 0x4c, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x12, 0x14, 0x0a, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79, 0x18,
+	0x01, 0x20, 0x01, 0x28, 0x09, 0x52, 0x05, 0x71, 0x75, 0x65, 0x72, 0x79, 0x12, 0x12, 0x0a, 0x04,
+	0x70, 0x61, 0x67, 0x65, 0x18, 0x02, 0x20, 0x01, 0x28, 0x05, 0x52, 0x04, 0x70, 0x61, 0x67, 0x65,
+	0x22, 0x45, 0x0a, 0x13, 0x4c, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x52,
+	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12, 0x2e, 0x0a, 0x07, 0x6f, 0x62, 0x6a, 0x65, 0x63,
+	0x74, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x14, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76,
+	0x31, 0x2e, 0x4d, 0x75, 0x73, 0x65, 0x75, 0x6d, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x07,
+	0x6f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x32, 0xa7, 0x01, 0x0a, 0x0f, 0x54, 0x69, 0x6d, 0x65,
+	0x6c, 0x69, 0x6e, 0x65, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x46, 0x0a, 0x0b, 0x47,
+	0x65, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x12, 0x1a, 0x2e, 0x76, 0x68, 0x75,
 	0x2e, 0x76, 0x31, 0x2e, 0x47, 0x65, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x52,
+	0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e,
+	0x47, 0x65, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x52, 0x65, 0x73, 0x70, 0x6f,
+	0x6e, 0x73, 0x65, 0x12, 0x4c, 0x0a, 0x0d, 0x4c, 0x69, 0x73, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c,
+	0x69, 0x6e, 0x65, 0x73, 0x12, 0x1c, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x4c, 0x69,
+	0x73, 0x74, 0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65,
+	0x73, 0x74, 0x1a, 0x1d, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x4c, 0x69, 0x73, 0x74,
+	0x54, 0x69, 0x6d, 0x65, 0x6c, 0x69, 0x6e, 0x65, 0x73, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73,
+	0x65, 0x32, 0xa3, 0x01, 0x0a, 0x17, 0x43, 0x6f, 0x6e, 0x63, 0x65, 0x70, 0x74, 0x75, 0x61, 0x6c,
+	0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x12, 0x40, 0x0a,
+	0x09, 0x47, 0x65, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x12, 0x18, 0x2e, 0x76, 0x68, 0x75,
+	0x2e, 0x76, 0x31, 0x2e, 0x47, 0x65, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x71,
+	0x75, 0x65, 0x73, 0x74, 0x1a, 0x19, 0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x47, 0x65,
+	0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x52, 0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x12,
+	0x46, 0x0a, 0x0b, 0x4c, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x12, 0x1a,
+	0x2e, 0x76, 0x68, 0x75, 0x2e, 0x76, 0x31, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a, 0x65,
+	0x63, 0x74, 0x73, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x1b, 0x2e, 0x76, 0x68, 0x75,
+	0x2e, 0x76, 0x31, 0x2e, 0x4c, 0x69, 0x73, 0x74, 0x4f, 0x62, 0x6a, 0x65, 0x63, 0x74, 0x73, 0x52,
 	0x65, 0x73, 0x70, 0x6f, 0x6e, 0x73, 0x65, 0x42, 0x1c, 0x5a, 0x07, 0x70, 0x6f, 0x63, 0x2f, 0x76,
 	0x68, 0x75, 0xca, 0x02, 0x10, 0x41, 0x70, 0x70, 0x5c, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65,
 	0x73, 0x5c, 0x56, 0x48, 0x55, 0x62, 0x06, 0x70, 0x72, 0x6f, 0x74, 0x6f, 0x33,
@@ -373,32 +529,38 @@ func file_vhu_v1_services_proto_rawDescGZIP() []byte {
 	return file_vhu_v1_services_proto_rawDescData
 }
 
-var file_vhu_v1_services_proto_msgTypes = make([]protoimpl.MessageInfo, 6)
+var file_vhu_v1_services_proto_msgTypes = make([]protoimpl.MessageInfo, 9)
 var file_vhu_v1_services_proto_goTypes = []interface{}{
-	(*GetObjectRequest)(nil),    // 0: vhu.v1.GetObjectRequest
-	(*GetObjectResponse)(nil),   // 1: vhu.v1.GetObjectResponse
-	(*ListObjectsRequest)(nil),  // 2: vhu.v1.ListObjectsRequest
-	(*ListObjectsResponse)(nil), // 3: vhu.v1.ListObjectsResponse
-	(*GetTimelineRequest)(nil),  // 4: vhu.v1.GetTimelineRequest
-	(*GetTimelineResponse)(nil), // 5: vhu.v1.GetTimelineResponse
-	(*ConceptualObject)(nil),    // 6: vhu.v1.ConceptualObject
-	(*Timeline)(nil),            // 7: vhu.v1.Timeline
+	(*GetTimelineRequest)(nil),        // 0: vhu.v1.GetTimelineRequest
+	(*GetTimelineResponse)(nil),       // 1: vhu.v1.GetTimelineResponse
+	(*ListTimelineResponseEntry)(nil), // 2: vhu.v1.ListTimelineResponseEntry
+	(*ListTimelinesRequest)(nil),      // 3: vhu.v1.ListTimelinesRequest
+	(*ListTimelinesResponse)(nil),     // 4: vhu.v1.ListTimelinesResponse
+	(*GetObjectRequest)(nil),          // 5: vhu.v1.GetObjectRequest
+	(*GetObjectResponse)(nil),         // 6: vhu.v1.GetObjectResponse
+	(*ListObjectsRequest)(nil),        // 7: vhu.v1.ListObjectsRequest
+	(*ListObjectsResponse)(nil),       // 8: vhu.v1.ListObjectsResponse
+	(*Timeline)(nil),                  // 9: vhu.v1.Timeline
+	(*MuseumObject)(nil),              // 10: vhu.v1.MuseumObject
 }
 var file_vhu_v1_services_proto_depIdxs = []int32{
-	6, // 0: vhu.v1.GetObjectResponse.object:type_name -> vhu.v1.ConceptualObject
-	6, // 1: vhu.v1.ListObjectsResponse.objects:type_name -> vhu.v1.ConceptualObject
-	7, // 2: vhu.v1.GetTimelineResponse.object:type_name -> vhu.v1.Timeline
-	0, // 3: vhu.v1.ConceptualObjectService.GetObject:input_type -> vhu.v1.GetObjectRequest
-	2, // 4: vhu.v1.ConceptualObjectService.ListObjects:input_type -> vhu.v1.ListObjectsRequest
-	4, // 5: vhu.v1.TimelineService.GetTimeline:input_type -> vhu.v1.GetTimelineRequest
-	1, // 6: vhu.v1.ConceptualObjectService.GetObject:output_type -> vhu.v1.GetObjectResponse
-	3, // 7: vhu.v1.ConceptualObjectService.ListObjects:output_type -> vhu.v1.ListObjectsResponse
-	5, // 8: vhu.v1.TimelineService.GetTimeline:output_type -> vhu.v1.GetTimelineResponse
-	6, // [6:9] is the sub-list for method output_type
-	3, // [3:6] is the sub-list for method input_type
-	3, // [3:3] is the sub-list for extension type_name
-	3, // [3:3] is the sub-list for extension extendee
-	0, // [0:3] is the sub-list for field type_name
+	9,  // 0: vhu.v1.GetTimelineResponse.timeline:type_name -> vhu.v1.Timeline
+	2,  // 1: vhu.v1.ListTimelinesResponse.timelines:type_name -> vhu.v1.ListTimelineResponseEntry
+	10, // 2: vhu.v1.GetObjectResponse.object:type_name -> vhu.v1.MuseumObject
+	10, // 3: vhu.v1.ListObjectsResponse.objects:type_name -> vhu.v1.MuseumObject
+	0,  // 4: vhu.v1.TimelineService.GetTimeline:input_type -> vhu.v1.GetTimelineRequest
+	3,  // 5: vhu.v1.TimelineService.ListTimelines:input_type -> vhu.v1.ListTimelinesRequest
+	5,  // 6: vhu.v1.ConceptualObjectService.GetObject:input_type -> vhu.v1.GetObjectRequest
+	7,  // 7: vhu.v1.ConceptualObjectService.ListObjects:input_type -> vhu.v1.ListObjectsRequest
+	1,  // 8: vhu.v1.TimelineService.GetTimeline:output_type -> vhu.v1.GetTimelineResponse
+	4,  // 9: vhu.v1.TimelineService.ListTimelines:output_type -> vhu.v1.ListTimelinesResponse
+	6,  // 10: vhu.v1.ConceptualObjectService.GetObject:output_type -> vhu.v1.GetObjectResponse
+	8,  // 11: vhu.v1.ConceptualObjectService.ListObjects:output_type -> vhu.v1.ListObjectsResponse
+	8,  // [8:12] is the sub-list for method output_type
+	4,  // [4:8] is the sub-list for method input_type
+	4,  // [4:4] is the sub-list for extension type_name
+	4,  // [4:4] is the sub-list for extension extendee
+	0,  // [0:4] is the sub-list for field type_name
 }
 
 func init() { file_vhu_v1_services_proto_init() }
@@ -409,54 +571,6 @@ func file_vhu_v1_services_proto_init() {
 	file_vhu_v1_definitions_proto_init()
 	if !protoimpl.UnsafeEnabled {
 		file_vhu_v1_services_proto_msgTypes[0].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetObjectRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_vhu_v1_services_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*GetObjectResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_vhu_v1_services_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ListObjectsRequest); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_vhu_v1_services_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*ListObjectsResponse); i {
-			case 0:
-				return &v.state
-			case 1:
-				return &v.sizeCache
-			case 2:
-				return &v.unknownFields
-			default:
-				return nil
-			}
-		}
-		file_vhu_v1_services_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetTimelineRequest); i {
 			case 0:
 				return &v.state
@@ -468,8 +582,92 @@ func file_vhu_v1_services_proto_init() {
 				return nil
 			}
 		}
-		file_vhu_v1_services_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+		file_vhu_v1_services_proto_msgTypes[1].Exporter = func(v interface{}, i int) interface{} {
 			switch v := v.(*GetTimelineResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_vhu_v1_services_proto_msgTypes[2].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListTimelineResponseEntry); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_vhu_v1_services_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListTimelinesRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_vhu_v1_services_proto_msgTypes[4].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListTimelinesResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_vhu_v1_services_proto_msgTypes[5].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetObjectRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_vhu_v1_services_proto_msgTypes[6].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*GetObjectResponse); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_vhu_v1_services_proto_msgTypes[7].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListObjectsRequest); i {
+			case 0:
+				return &v.state
+			case 1:
+				return &v.sizeCache
+			case 2:
+				return &v.unknownFields
+			default:
+				return nil
+			}
+		}
+		file_vhu_v1_services_proto_msgTypes[8].Exporter = func(v interface{}, i int) interface{} {
+			switch v := v.(*ListObjectsResponse); i {
 			case 0:
 				return &v.state
 			case 1:
@@ -487,7 +685,7 @@ func file_vhu_v1_services_proto_init() {
 			GoPackagePath: reflect.TypeOf(x{}).PkgPath(),
 			RawDescriptor: file_vhu_v1_services_proto_rawDesc,
 			NumEnums:      0,
-			NumMessages:   6,
+			NumMessages:   9,
 			NumExtensions: 0,
 			NumServices:   2,
 		},

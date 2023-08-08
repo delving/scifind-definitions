@@ -18,3 +18,6 @@ plugins:
   # dependencies
   - plugin: buf.build/protocolbuffers/php
     out: scifind-api
+  - plugin: buf.build/protocolbuffers/python
+    out: gen/python
+    out: scifind-api

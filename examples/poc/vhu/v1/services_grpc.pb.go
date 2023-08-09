@@ -146,127 +146,126 @@ var TimelineService_ServiceDesc = grpc.ServiceDesc{
 }
 
 const (
-	ConceptualObjectService_GetObject_FullMethodName   = "/vhu.v1.ConceptualObjectService/GetObject"
-	ConceptualObjectService_ListObjects_FullMethodName = "/vhu.v1.ConceptualObjectService/ListObjects"
+	MuseumObjectService_GetMuseumObject_FullMethodName   = "/vhu.v1.MuseumObjectService/GetMuseumObject"
+	MuseumObjectService_ListMuseumObjects_FullMethodName = "/vhu.v1.MuseumObjectService/ListMuseumObjects"
 )
 
-// ConceptualObjectServiceClient is the client API for ConceptualObjectService service.
+// MuseumObjectServiceClient is the client API for MuseumObjectService service.
 //
 // For semantics around ctx use and closing/ending streaming RPCs, please refer to https://pkg.go.dev/google.golang.org/grpc/?tab=doc#ClientConn.NewStream.
-type ConceptualObjectServiceClient interface {
-	GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error)
-	ListObjects(ctx context.Context, in *ListObjectsRequest, opts ...grpc.CallOption) (*ListObjectsResponse, error)
+type MuseumObjectServiceClient interface {
+	GetMuseumObject(ctx context.Context, in *GetMuseumObjectRequest, opts ...grpc.CallOption) (*GetMuseumObjectResponse, error)
+	ListMuseumObjects(ctx context.Context, in *ListMuseumObjectsRequest, opts ...grpc.CallOption) (*ListMuseumObjectsResponse, error)
 }
 
-type conceptualObjectServiceClient struct {
+type museumObjectServiceClient struct {
 	cc grpc.ClientConnInterface
 }
 
-func NewConceptualObjectServiceClient(cc grpc.ClientConnInterface) ConceptualObjectServiceClient {
-	return &conceptualObjectServiceClient{cc}
+func NewMuseumObjectServiceClient(cc grpc.ClientConnInterface) MuseumObjectServiceClient {
+	return &museumObjectServiceClient{cc}
 }
 
-func (c *conceptualObjectServiceClient) GetObject(ctx context.Context, in *GetObjectRequest, opts ...grpc.CallOption) (*GetObjectResponse, error) {
-	out := new(GetObjectResponse)
-	err := c.cc.Invoke(ctx, ConceptualObjectService_GetObject_FullMethodName, in, out, opts...)
+func (c *museumObjectServiceClient) GetMuseumObject(ctx context.Context, in *GetMuseumObjectRequest, opts ...grpc.CallOption) (*GetMuseumObjectResponse, error) {
+	out := new(GetMuseumObjectResponse)
+	err := c.cc.Invoke(ctx, MuseumObjectService_GetMuseumObject_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-func (c *conceptualObjectServiceClient) ListObjects(ctx context.Context, in *ListObjectsRequest, opts ...grpc.CallOption) (*ListObjectsResponse, error) {
-	out := new(ListObjectsResponse)
-	err := c.cc.Invoke(ctx, ConceptualObjectService_ListObjects_FullMethodName, in, out, opts...)
+func (c *museumObjectServiceClient) ListMuseumObjects(ctx context.Context, in *ListMuseumObjectsRequest, opts ...grpc.CallOption) (*ListMuseumObjectsResponse, error) {
+	out := new(ListMuseumObjectsResponse)
+	err := c.cc.Invoke(ctx, MuseumObjectService_ListMuseumObjects_FullMethodName, in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
 	return out, nil
 }
 
-// ConceptualObjectServiceServer is the server API for ConceptualObjectService service.
-// All implementations must embed UnimplementedConceptualObjectServiceServer
+// MuseumObjectServiceServer is the server API for MuseumObjectService service.
+// All implementations must embed UnimplementedMuseumObjectServiceServer
 // for forward compatibility
-type ConceptualObjectServiceServer interface {
-	GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error)
-	ListObjects(context.Context, *ListObjectsRequest) (*ListObjectsResponse, error)
-	mustEmbedUnimplementedConceptualObjectServiceServer()
+type MuseumObjectServiceServer interface {
+	GetMuseumObject(context.Context, *GetMuseumObjectRequest) (*GetMuseumObjectResponse, error)
+	ListMuseumObjects(context.Context, *ListMuseumObjectsRequest) (*ListMuseumObjectsResponse, error)
+	mustEmbedUnimplementedMuseumObjectServiceServer()
 }
 
-// UnimplementedConceptualObjectServiceServer must be embedded to have forward compatible implementations.
-type UnimplementedConceptualObjectServiceServer struct {
+// UnimplementedMuseumObjectServiceServer must be embedded to have forward compatible implementations.
+type UnimplementedMuseumObjectServiceServer struct {
 }
 
-func (UnimplementedConceptualObjectServiceServer) GetObject(context.Context, *GetObjectRequest) (*GetObjectResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method GetObject not implemented")
+func (UnimplementedMuseumObjectServiceServer) GetMuseumObject(context.Context, *GetMuseumObjectRequest) (*GetMuseumObjectResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method GetMuseumObject not implemented")
 }
-func (UnimplementedConceptualObjectServiceServer) ListObjects(context.Context, *ListObjectsRequest) (*ListObjectsResponse, error) {
-	return nil, status.Errorf(codes.Unimplemented, "method ListObjects not implemented")
+func (UnimplementedMuseumObjectServiceServer) ListMuseumObjects(context.Context, *ListMuseumObjectsRequest) (*ListMuseumObjectsResponse, error) {
+	return nil, status.Errorf(codes.Unimplemented, "method ListMuseumObjects not implemented")
 }
-func (UnimplementedConceptualObjectServiceServer) mustEmbedUnimplementedConceptualObjectServiceServer() {
-}
+func (UnimplementedMuseumObjectServiceServer) mustEmbedUnimplementedMuseumObjectServiceServer() {}
 
-// UnsafeConceptualObjectServiceServer may be embedded to opt out of forward compatibility for this service.
-// Use of this interface is not recommended, as added methods to ConceptualObjectServiceServer will
+// UnsafeMuseumObjectServiceServer may be embedded to opt out of forward compatibility for this service.
+// Use of this interface is not recommended, as added methods to MuseumObjectServiceServer will
 // result in compilation errors.
-type UnsafeConceptualObjectServiceServer interface {
-	mustEmbedUnimplementedConceptualObjectServiceServer()
+type UnsafeMuseumObjectServiceServer interface {
+	mustEmbedUnimplementedMuseumObjectServiceServer()
 }
 
-func RegisterConceptualObjectServiceServer(s grpc.ServiceRegistrar, srv ConceptualObjectServiceServer) {
-	s.RegisterService(&ConceptualObjectService_ServiceDesc, srv)
+func RegisterMuseumObjectServiceServer(s grpc.ServiceRegistrar, srv MuseumObjectServiceServer) {
+	s.RegisterService(&MuseumObjectService_ServiceDesc, srv)
 }
 
-func _ConceptualObjectService_GetObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(GetObjectRequest)
+func _MuseumObjectService_GetMuseumObject_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(GetMuseumObjectRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ConceptualObjectServiceServer).GetObject(ctx, in)
+		return srv.(MuseumObjectServiceServer).GetMuseumObject(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ConceptualObjectService_GetObject_FullMethodName,
+		FullMethod: MuseumObjectService_GetMuseumObject_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConceptualObjectServiceServer).GetObject(ctx, req.(*GetObjectRequest))
+		return srv.(MuseumObjectServiceServer).GetMuseumObject(ctx, req.(*GetMuseumObjectRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-func _ConceptualObjectService_ListObjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
-	in := new(ListObjectsRequest)
+func _MuseumObjectService_ListMuseumObjects_Handler(srv interface{}, ctx context.Context, dec func(interface{}) error, interceptor grpc.UnaryServerInterceptor) (interface{}, error) {
+	in := new(ListMuseumObjectsRequest)
 	if err := dec(in); err != nil {
 		return nil, err
 	}
 	if interceptor == nil {
-		return srv.(ConceptualObjectServiceServer).ListObjects(ctx, in)
+		return srv.(MuseumObjectServiceServer).ListMuseumObjects(ctx, in)
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: ConceptualObjectService_ListObjects_FullMethodName,
+		FullMethod: MuseumObjectService_ListMuseumObjects_FullMethodName,
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
-		return srv.(ConceptualObjectServiceServer).ListObjects(ctx, req.(*ListObjectsRequest))
+		return srv.(MuseumObjectServiceServer).ListMuseumObjects(ctx, req.(*ListMuseumObjectsRequest))
 	}
 	return interceptor(ctx, in, info, handler)
 }
 
-// ConceptualObjectService_ServiceDesc is the grpc.ServiceDesc for ConceptualObjectService service.
+// MuseumObjectService_ServiceDesc is the grpc.ServiceDesc for MuseumObjectService service.
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
-var ConceptualObjectService_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "vhu.v1.ConceptualObjectService",
-	HandlerType: (*ConceptualObjectServiceServer)(nil),
+var MuseumObjectService_ServiceDesc = grpc.ServiceDesc{
+	ServiceName: "vhu.v1.MuseumObjectService",
+	HandlerType: (*MuseumObjectServiceServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
-			MethodName: "GetObject",
-			Handler:    _ConceptualObjectService_GetObject_Handler,
+			MethodName: "GetMuseumObject",
+			Handler:    _MuseumObjectService_GetMuseumObject_Handler,
 		},
 		{
-			MethodName: "ListObjects",
-			Handler:    _ConceptualObjectService_ListObjects_Handler,
+			MethodName: "ListMuseumObjects",
+			Handler:    _MuseumObjectService_ListMuseumObjects_Handler,
 		},
 	},
 	Streams:  []grpc.StreamDesc{},

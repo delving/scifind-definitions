@@ -33,25 +33,26 @@ service TimelineService {
 // [end] timeline service
 
 // [start] object service
-message GetObjectRequest {
+message GetMuseumObjectRequest {
   string id = 1;
 }
 
-message GetObjectResponse {
+message GetMuseumObjectResponse {
   MuseumObject object = 1;
 }
 
-message ListObjectsRequest {
+message ListMuseumObjectsRequest {
   string query = 1;
   int32 page = 2;
+  repeated string query_filters = 3;
 }
 
-message ListObjectsResponse {
+message ListMuseumObjectsResponse {
   repeated MuseumObject objects = 1;
 }
 
-service ConceptualObjectService {
-  rpc GetObject(GetObjectRequest) returns (GetObjectResponse);
-  rpc ListObjects(ListObjectsRequest) returns (ListObjectsResponse);
+service MuseumObjectService {
+  rpc GetMuseumObject(GetMuseumObjectRequest) returns (GetMuseumObjectResponse);
+  rpc ListMuseumObjects(ListMuseumObjectsRequest) returns (ListMuseumObjectsResponse);
 }
 // [end] object service

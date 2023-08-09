@@ -40,6 +40,8 @@ message MuseumObjectInfo {
   string id = 3;
   string uri = 4;
   string object_number = 5;
+  string museum_name = 6;
+  string concept_label = 7;
 }
 
 message MuseumObject {

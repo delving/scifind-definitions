@@ -41,7 +41,6 @@ message MuseumObjectInfo {
   string uri = 4;
   string object_number = 5;
   string museum_name = 6;
-  string concept_label = 7;
 }
 
 message MuseumObject {
@@ -49,7 +48,7 @@ message MuseumObject {
   Metadata metadata = 2;
   repeated ThesaurusConcept concepts = 3; // skos:relatedMatch via thesaurus link
   repeated MuseumObject related_objects = 4;
-  ObjLinkInfo link_info = 5;
+  ObjLinkInfo link_info = 5; // this field is for debug purposes and should not be used in the front-end
 }
 
 message ObjLinkInfo {

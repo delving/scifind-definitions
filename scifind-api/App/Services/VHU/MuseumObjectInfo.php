@@ -37,10 +37,6 @@ class MuseumObjectInfo extends \Google\Protobuf\Internal\Message
      * Generated from protobuf field <code>string museum_name = 6 [json_name = "museumName"];</code>
      */
     protected $museum_name = '';
-    /**
-     * Generated from protobuf field <code>string concept_label = 7 [json_name = "conceptLabel"];</code>
-     */
-    protected $concept_label = '';
 
     /**
      * Constructor.
@@ -54,7 +50,6 @@ class MuseumObjectInfo extends \Google\Protobuf\Internal\Message
      *     @type string $uri
      *     @type string $object_number
      *     @type string $museum_name
-     *     @type string $concept_label
      * }
      */
     public function __construct($data = NULL) {
@@ -190,28 +185,6 @@ class MuseumObjectInfo extends \Google\Protobuf\Internal\Message
     {
         GPBUtil::checkString($var, True);
         $this->museum_name = $var;
-
-        return $this;
-    }
-
-    /**
-     * Generated from protobuf field <code>string concept_label = 7 [json_name = "conceptLabel"];</code>
-     * @return string
-     */
-    public function getConceptLabel()
-    {
-        return $this->concept_label;
-    }
-
-    /**
-     * Generated from protobuf field <code>string concept_label = 7 [json_name = "conceptLabel"];</code>
-     * @param string $var
-     * @return $this
-     */
-    public function setConceptLabel($var)
-    {
-        GPBUtil::checkString($var, True);
-        $this->concept_label = $var;
 
         return $this;
     }

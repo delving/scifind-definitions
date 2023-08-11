@@ -32,6 +32,8 @@ class MuseumObject extends \Google\Protobuf\Internal\Message
      */
     private $related_objects;
     /**
+     * this field is for debug purposes and should not be used in the front-end
+     *
      * Generated from protobuf field <code>.vhu.v1.ObjLinkInfo link_info = 5 [json_name = "linkInfo"];</code>
      */
     protected $link_info = null;
@@ -48,6 +50,7 @@ class MuseumObject extends \Google\Protobuf\Internal\Message
      *           skos:relatedMatch via thesaurus link
      *     @type array<\App\Services\VHU\MuseumObject>|\Google\Protobuf\Internal\RepeatedField $related_objects
      *     @type \App\Services\VHU\ObjLinkInfo $link_info
+     *           this field is for debug purposes and should not be used in the front-end
      * }
      */
     public function __construct($data = NULL) {
@@ -168,6 +171,8 @@ class MuseumObject extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * this field is for debug purposes and should not be used in the front-end
+     *
      * Generated from protobuf field <code>.vhu.v1.ObjLinkInfo link_info = 5 [json_name = "linkInfo"];</code>
      * @return \App\Services\VHU\ObjLinkInfo|null
      */
@@ -187,6 +192,8 @@ class MuseumObject extends \Google\Protobuf\Internal\Message
     }
 
     /**
+     * this field is for debug purposes and should not be used in the front-end
+     *
      * Generated from protobuf field <code>.vhu.v1.ObjLinkInfo link_info = 5 [json_name = "linkInfo"];</code>
      * @param \App\Services\VHU\ObjLinkInfo $var
      * @return $this

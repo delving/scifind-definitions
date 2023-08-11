@@ -16,7 +16,7 @@ class Definitions
         }
         $pool->internalAddGeneratedFile(
             '
-Ä
+Ÿ
 vhu/v1/definitions.protovhu.v1"£
 Header
 title (	Rtitle 
@@ -40,7 +40,7 @@ start_date (	R	startDate
 period (	Rperiod2
 objects (2.vhu.v1.MuseumObjectInfoRobjects
 is_group (RisGroup
-year (	Ryear"Ë
+year (	Ryear"¦
 MuseumObjectInfo
 title (	Rtitle
 image (	Rimage
@@ -48,8 +48,7 @@ start_date (	R	startDate
 uri (	Ruri#
 object_number (	RobjectNumber
 museum_name (	R
-museumName#
-concept_label (	RconceptLabel"‹
+museumName"‹
 MuseumObject&
 header (2.vhu.v1.HeaderRheader,
 metadata (2.vhu.v1.MetadataRmetadata4

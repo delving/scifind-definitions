@@ -16,34 +16,53 @@ class Definitions
         }
         $pool->internalAddGeneratedFile(
             '
-—
-vhu/v1/definitions.protovhu.v1"
-
-Collection"3
-ContentPage$
-staticcontent (	Rstaticcontent"R
-DownloadLink
-uri (	Ruri
-rights (	Rrights
-caption (	Rcaption"
-Event"
+Ä
+vhu/v1/definitions.protovhu.v1"£
 Header
 title (	Rtitle 
 description (	Rdescription
 summary (	Rsummary%
-images (2.vhu.v1.ImageRimages"K
+images (2.vhu.v1.ImageRimages
+id (	Rid
+uri (	Ruri"K
 Image
 uri (	Ruri
 rights (	Rrights
-caption (	Rcaption"d
-LongRead0
-content (2.vhu.v1.WebsiteContentRcontent&
-header (2.vhu.v1.HeaderRheader"v
-Measurement
-height (Rheight
-width (Rwidth
-unit (	Runit%
-dimension_type (	RdimensionType"Û
+caption (	Rcaption"Y
+Timeline&
+header (2.vhu.v1.HeaderRheader%
+events (2.vhu.v1.EventRevents"ä
+Event&
+header (2.vhu.v1.HeaderRheader
+
+start_date (	R	startDate
+end_date (	RendDate
+period (	Rperiod2
+objects (2.vhu.v1.MuseumObjectInfoRobjects
+is_group (RisGroup
+year (	Ryear"Ë
+MuseumObjectInfo
+title (	Rtitle
+image (	Rimage
+id (	Rid
+uri (	Ruri#
+object_number (	RobjectNumber
+museum_name (	R
+museumName#
+concept_label (	RconceptLabel"‹
+MuseumObject&
+header (2.vhu.v1.HeaderRheader,
+metadata (2.vhu.v1.MetadataRmetadata4
+concepts (2.vhu.v1.ThesaurusConceptRconcepts=
+related_objects (2.vhu.v1.MuseumObjectRrelatedObjects0
+	link_info (2.vhu.v1.ObjLinkInfoRlinkInfo"
+ObjLinkInfo
+museum_name (	R
+museumName#
+object_number (	RobjectNumber
+object_name (	R
+objectName
+dcn_uri (	RdcnUri"ü
 Metadata#
 object_number (	RobjectNumber
 object_date (	R
@@ -51,49 +70,27 @@ objectDate7
 measurements (2.vhu.v1.MeasurementRmeasurements$
 documentation (	Rdocumentation 
 association (	Rassociation
-object_type (	R
+object_type (	R
 objectType
-rights (	Rrights#
-theme (2.vhu.v1.ThemeRtheme*
-creators	 (2.vhu.v1.PersonRcreators"
-Museum"Ç
-ObjectRecord&
-header (2.vhu.v1.HeaderRheader,
-metadata (2.vhu.v1.MetadataRmetadata/
-	relations (2.vhu.v1.RelationsR	relations0
-download (2.vhu.v1.DownloadLinkRdownload"	
-Partner"
-Person"¸
-	Relations4
-collections (2.vhu.v1.CollectionRcollections>
-sub_collections (2.vhu.v1.SubCollectionRsubCollections%
-themes (2.vhu.v1.ThemeRthemes%
-events (2.vhu.v1.EventRevents(
-museums (2.vhu.v1.MuseumRmuseums.
-objects (2.vhu.v1.ObjectRecordRobjects(
-persons (2.vhu.v1.PersonRpersons2
-story_cards	 (2.vhu.v1.StoryCardR
-storyCards/
+rights (	Rrights
+creators	 (	Rcreators
+subject
+ (	Rsubject
 
-long_reads
- (2.vhu.v1.LongReadR	longReads"e
-	StoryCard0
-content (2.vhu.v1.WebsiteContentRcontent&
-header (2.vhu.v1.HeaderRheader"o
-StoryCardCollection&
-header (2.vhu.v1.HeaderRheader0
+dimensions (	R
+dimensions
+material (	Rmaterial"v
+Measurement
+height (Rheight
+width (Rwidth
+unit (	Runit%
+dimension_type (	RdimensionType"b
+ThesaurusConcept
+id (	Rid
 
-story_card (2.vhu.v1.StoryCardR	storyCard"
-SubCollection"
-Theme"ª
-Timeline&
-header (2.vhu.v1.HeaderRheader%
-themes (2.vhu.v1.ThemeRthemes(
-persons (2.vhu.v1.PersonRpersons%
-events (2.vhu.v1.EventRevents"Y
-WebsiteContent$
-staticcontent (	Rstaticcontent!
-publish_date (	RpublishDateB Zdelving.vhuÊApp\\Services\\VHUbproto3'
+pref_label (	R	prefLabel
+scope_notes (	R
+scopeNotesBZpoc/vhuÊApp\\Services\\VHUbproto3'
         , true);
 
         static::$is_initialized = true;

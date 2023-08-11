@@ -17,26 +17,34 @@ class Services
         \GPBMetadata\Vhu\V1\Definitions::initOnce();
         $pool->internalAddGeneratedFile(
             '
-õ
-vhu/v1/services.protovhu.v1""
-GetObjectRequest
-id (	Rid"A
-GetObjectResponse,
-object (2.vhu.v1.ObjectRecordRobject">
-ListObjectsRequest
-query (	Rquery
-page (Rpage"E
-ListObjectsResponse.
-objects (2.vhu.v1.ObjectRecordRobjects"$
+Ä
+vhu/v1/services.protovhu.v1"$
 GetTimelineRequest
-id (	Rid"?
-GetTimelineResponse(
-object (2.vhu.v1.TimelineRobject2ü
-ObjectRecordService@
-	GetObject.vhu.v1.GetObjectRequest.vhu.v1.GetObjectResponseF
-ListObjects.vhu.v1.ListObjectsRequest.vhu.v1.ListObjectsResponse2Y
+id (	Rid"C
+GetTimelineResponse,
+timeline (2.vhu.v1.TimelineRtimeline"A
+ListTimelineResponseEntry
+id (	Rid
+title (	Rtitle"
+ListTimelinesRequest"X
+ListTimelinesResponse?
+	timelines (2!.vhu.v1.ListTimelineResponseEntryR	timelines"(
+GetMuseumObjectRequest
+id (	Rid"G
+GetMuseumObjectResponse,
+object (2.vhu.v1.MuseumObjectRobject"i
+ListMuseumObjectsRequest
+query (	Rquery
+page (Rpage#
+query_filters (	RqueryFilters"K
+ListMuseumObjectsResponse.
+objects (2.vhu.v1.MuseumObjectRobjects2ß
 TimelineServiceF
-GetTimeline.vhu.v1.GetTimelineRequest.vhu.v1.GetTimelineResponseB Zdelving.vhu App\\Services\\VHUbproto3'
+GetTimeline.vhu.v1.GetTimelineRequest.vhu.v1.GetTimelineResponseL
+ListTimelines.vhu.v1.ListTimelinesRequest.vhu.v1.ListTimelinesResponse2√
+MuseumObjectServiceR
+GetMuseumObject.vhu.v1.GetMuseumObjectRequest.vhu.v1.GetMuseumObjectResponseX
+ListMuseumObjects .vhu.v1.ListMuseumObjectsRequest!.vhu.v1.ListMuseumObjectsResponseBZpoc/vhu App\\Services\\VHUbproto3'
         , true);
 
         static::$is_initialized = true;

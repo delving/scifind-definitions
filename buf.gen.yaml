@@ -2,21 +2,17 @@ version: v1
 managed:
   enabled: false 
   go_package_prefix:
-    default: github.com/delving/vhu-definitions/examples/
+    default: github.com/delving/grpc/vhu
 plugins:
   - plugin: buf.build/protocolbuffers/go
-    out: examples/poc/
+    out: grpc/vhu/pb
     opt: paths=source_relative
   - plugin: buf.build/grpc/go
-    out: examples/poc/
+    out: grpc/vhu/pb
     opt: paths=source_relative
-  # - plugin: buf.build/bufbuild/connect-go
-  #   out: examples/poc/
-  #   opt: paths=source_relative
   - plugin: buf.build/grpc/php
     out: scifind-api
   - plugin: buf.build/protocolbuffers/php
     out: scifind-api
-  # dependencies
   - plugin: buf.build/protocolbuffers/python
     out: gen/python

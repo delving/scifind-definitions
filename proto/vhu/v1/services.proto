@@ -41,11 +41,7 @@ message GetMuseumObjectResponse {
   MuseumObject object = 1;
 }
 
-message ListMuseumObjectsRequest {
-  string query = 1;
-  int32 page = 2;
-  repeated string query_filters = 3;
-}
+message ListMuseumObjectsRequest {}
 
 message ListMuseumObjectsResponse {
   repeated MuseumObject objects = 1;

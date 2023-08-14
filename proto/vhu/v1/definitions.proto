@@ -11,6 +11,7 @@ message Header {
   repeated Image images = 4;
   string id = 5; // objectnumber
   string uri = 6; // RDF URI
+  string museum_name = 7;
 }
 
 message Image {
@@ -49,6 +50,7 @@ message MuseumObject {
   repeated ThesaurusConcept concepts = 3; // skos:relatedMatch via thesaurus link
   repeated MuseumObject related_objects = 4;
   ObjLinkInfo link_info = 5; // this field is for debug purposes and should not be used in the front-end
+  repeated ThesaurusConcept parent_concepts = 6; // skos:relatedMatch via thesaurus link
 }
 
 message ObjLinkInfo {
@@ -83,6 +85,7 @@ message ThesaurusConcept {
   string id = 1; // STT URI
   string pref_label = 2;
   string scope_notes = 3;
+  string description = 4;
 }
 
 // Core

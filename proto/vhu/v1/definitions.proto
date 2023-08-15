@@ -86,6 +86,7 @@ message ThesaurusConcept {
   string pref_label = 2;
   string scope_notes = 3;
   string description = 4;
+  string parent_id = 5;
 }
 
 // Core

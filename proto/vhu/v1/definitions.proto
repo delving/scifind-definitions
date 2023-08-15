@@ -42,14 +42,15 @@ message MuseumObjectInfo {
   string uri = 4;
   string object_number = 5;
   string museum_name = 6;
+  string period = 7; // todo implement
 }
 
 message MuseumObject {
   Header header = 1;
   Metadata metadata = 2;
   repeated ThesaurusConcept concepts = 3; // skos:relatedMatch via thesaurus link
-  repeated MuseumObject related_objects = 4;
-  ObjLinkInfo link_info = 5; // this field is for debug purposes and should not be used in the front-end
+  repeated MuseumObjectInfo related_objects = 4;
+  // ObjLinkInfo link_info = 5; // this field is for debug purposes and should not be used in the front-end
   repeated ThesaurusConcept parent_concepts = 6; // skos:relatedMatch via thesaurus link
 }
 
@@ -61,17 +62,19 @@ message ObjLinkInfo {
 }
 
 message Metadata {
+  // vhu: template-name
   string object_number = 1;
   string object_date = 2;
-  repeated Measurement measurements = 3;
-  string documentation = 4;
-  string association = 5;
+  // repeated Measurement measurements = 3; // out of scope
+  // string documentation = 4; // out of scope
+  // string association = 5; // out of scope
   repeated string object_type = 6;
   string rights = 7;
   repeated string creators = 9;
-  repeated string subject = 10;
+  repeated string subject = 10; // out of scope
   repeated string dimensions = 12;
   repeated string material = 13;
+  string period = 14;
 }
 
 message Measurement {

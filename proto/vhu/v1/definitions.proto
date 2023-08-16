@@ -52,6 +52,7 @@ message MuseumObject {
   repeated MuseumObjectInfo related_objects = 4;
   // ObjLinkInfo link_info = 5; // this field is for debug purposes and should not be used in the front-end
   repeated ThesaurusConcept parent_concepts = 6; // skos:relatedMatch via thesaurus link
+  repeated MuseumObjectInfo related_objects_by_domain = 7; // related item based on the broader term of the linked concept
 }
 
 message ObjLinkInfo {
@@ -62,7 +63,6 @@ message ObjLinkInfo {
 }
 
 message Metadata {
-  // vhu: template-name
   string object_number = 1;
   string object_date = 2;
   // repeated Measurement measurements = 3; // out of scope

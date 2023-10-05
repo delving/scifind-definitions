@@ -44,6 +44,8 @@ message MuseumObjectInfo {
   string museum_name = 6;
   string period = 7; // todo implement
   string object_date = 8;
+  repeated string concept_pref_label = 9;
+  repeated string parent_concept_pref_label = 10;
 }
 
 message MuseumObject {
